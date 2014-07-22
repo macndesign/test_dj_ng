@@ -1,0 +1,9 @@
+.idea
+.DS_STORE
+bin
+lib
+bootstrap
+include
+*.tar.gz
+*.pyc
+*.sqlite3
