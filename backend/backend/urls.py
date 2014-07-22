@@ -2,6 +2,7 @@ from __future__ import unicode_literals, absolute_import
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
+from django.views.generic.base import TemplateView
 from rest_framework.routers import DefaultRouter
 from core import views
 
@@ -14,7 +15,7 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+    url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

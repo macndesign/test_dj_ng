@@ -7,11 +7,13 @@
  * # MainCtrl
  * Controller of the staticApp
  */
-angular.module('staticApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+app.controller('MainCtrl', ['$scope', '$http', '$log', '$cookies', function ($scope, $http, $log, $cookies) {
+    $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+
+    $http.get('/api/todos/').success(function (data) {
+        $scope.data = data.results;
+    }).error(function (response) {
+            $log.log(response);
+        });
+
+}]);
