@@ -8,6 +8,6 @@
 <div class="row marketing">
   <h4>TODO List</h4>
   <ul>
-      <li ng-repeat="todo in data">{{ todo.title }} - {{ todo.description }} - {{ todo.created|date }}</li>
+      <li ng-repeat="todo in data"><strong>{{ todo.title }}</strong> - {{ todo.description }} - {{ todo.created|date }} by <strong>{{todo.user}}</strong></li>
   </ul>
 </div>
