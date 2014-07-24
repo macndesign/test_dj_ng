@@ -39,14 +39,16 @@ urlpatterns += patterns('',
     # u'8e1b3a36263ff74e0522f1551c9ba103a9a1bd26'
 
     # Using the token to make some actions
-    # header = {'Authorization': 'Token 8e1b3a36263ff74e0522f1551c9ba103a9a1bd26', 'content-type': 'application/json'}
-    # >>> post = requests.post('http://127.0.0.1:8000/api/todos/', data=json.dumps(payload), headers=header)
+    # >>> header = {'Authorization': 'Token ' + api_auth.json()['token'], 'content-type': 'application/json'}
+    # >>> payload = {'title': 'Title 1', 'description': 'Description Test 1', 'active': True}
+    # >>> todos = 'http://127.0.0.1:8000/api/todos/'
+    # >>> post = requests.post(todos, data=json.dumps(payload), headers=header)
     # >>> post.reason
     # 'CREATED'
-    # >>> put = requests.put('http://127.0.0.1:8000/api/todos/4/', data=json.dumps(payload), headers=header)
+    # >>> put = requests.put(todos + '4/', data=json.dumps(payload), headers=header)
     # >>> payload = {'active': True}
-    # >>> patch = requests.pacth('http://127.0.0.1:8000/api/todos/4/', data=json.dumps(payload), headers=header)
-    # >>> delete = requests.delete('http://127.0.0.1:8000/api/todos/2/', headers=header)
+    # >>> patch = requests.pacth(todos + '4/', data=json.dumps(payload), headers=header)
+    # >>> delete = requests.delete(todos + '2/', headers=header)
     # >>> delete.reason
     # 'NO CONTENT'
 
