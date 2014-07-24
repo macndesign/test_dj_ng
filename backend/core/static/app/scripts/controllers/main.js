@@ -7,27 +7,31 @@
  * # MainCtrl
  * Controller of the staticApp
  */
-app.controller('MainCtrl', ['$rootScope', '$scope', '$http', '$log', '$cookies', function ($rootScope, $scope, $http, $log, $cookies) {
+app.controller('MainCtrl', ['$scope', '$http', '$log', '$cookies', function ($scope, $http, $log, $cookies) {
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
     
     var get_url = function(url) {
         $http.get(url).success(function (data) {
             // Data properties
-            $rootScope.count = data.count;
-            $rootScope.next = data.next;
-            $rootScope.previous = data.previous;
+            $scope.count = data.count;
+            $scope.next = data.next;
+            $scope.previous = data.previous;
             // Data
             $scope.data = data.results;
-        }).error(function (response) {
-            $log.log(response);
+        }).error(function (xhr) {
+            $log.log(xhr);
         });
     };
     
-    var todos = '/api/todos/';
-    get_url(todos);
+    $scope.curr = 1;
+    $scope.todos = '/api/todos/';
+    get_url($scope.todos);
     
-    $scope.pass_button = function(pass){
-        get_url(pass);
+    $scope.pass_button = function(url){
+        var last_url = url.split('/').slice(-1).pop();
+        var last_page = last_url.split('=').slice(-1).pop();
+        $scope.curr = last_page;
+        get_url(url);
     };
 
 }]);
