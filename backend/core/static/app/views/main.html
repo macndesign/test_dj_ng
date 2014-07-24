@@ -13,8 +13,9 @@
 <div class="toolbox">
     <button ng-click="pass_button(todos)" ng-disabled="!previous">&lsaquo;&lsaquo;</button>
     <button ng-click="pass_button(previous)" ng-disabled="!previous">&lsaquo;</button> 
-    {{curr}} of {{count}} 
+    Page {{curr}} of {{count/2}}<!-- 2 is in PAGINATE_BY setting --> 
     <button ng-click="pass_button(next)" ng-disabled="!next">&rsaquo;</button>
     <button ng-click="pass_button(todos + '?page=' + count)" ng-disabled="!next">&rsaquo;&rsaquo;</button>
+    {{count}} items
 </div>
 </div>

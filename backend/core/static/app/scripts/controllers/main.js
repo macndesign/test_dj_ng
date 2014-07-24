@@ -30,7 +30,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$log', '$cookies', function ($sc
     $scope.pass_button = function(url){
         var last_url = url.split('/').slice(-1).pop();
         var last_page = last_url.split('=').slice(-1).pop();
-        $scope.curr = last_page;
+        $scope.curr = last_page || 1;
         get_url(url);
     };
 
