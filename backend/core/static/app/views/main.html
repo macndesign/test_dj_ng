@@ -6,16 +6,25 @@
 </div-->
 
 <div class="row marketing">
-<h4>List</h4>
-<ul>
-    <li ng-repeat="todo in data"><strong>{{ todo.title }}</strong> - {{ todo.description }} - {{ todo.created|date }} by <strong>{{todo.user}}</strong></li>
-</ul>
-<div class="toolbox">
-    <button ng-click="pass_button(todos)" ng-disabled="!previous">&lsaquo;&lsaquo;</button>
-    <button ng-click="pass_button(previous)" ng-disabled="!previous">&lsaquo;</button> 
-    Page <input type="number" ng-change="setPage(curr)" ng-model="curr" min="1" max="{{ page }}" /> of {{ page }}
-    <button ng-click="pass_button(next)" ng-disabled="!next">&rsaquo;</button>
-    <button ng-click="pass_button(todos + '?page=' + page)" ng-disabled="!next">&rsaquo;&rsaquo;</button>
-    {{ count }} items
-</div>
+    <!-- toolbox -->
+    <div class="col-xs-10">
+        <button class="btn btn-default" ng-click="passButton(todos)" ng-disabled="!previous">&lsaquo;&lsaquo;</button>
+        <button class="btn btn-default" ng-click="passButton(previous)" ng-disabled="!previous">&lsaquo;</button>
+        Page {{ curr }} of {{ page }}
+        <button class="btn btn-default" ng-click="passButton(next)" ng-disabled="!next">&rsaquo;</button>
+        <button class="btn btn-default" ng-click="passButton(todos + '?page=' + page)" ng-disabled="!next">&rsaquo;&rsaquo;</button>
+        {{ count }} items
+    </div>
+    <div class="col-xs-2">
+        <input class="form-control" type="number" ng-change="setPage(curr)" ng-model="curr" min="1" max="{{ page }}" />
+    </div>
+
+    <!-- list -->
+    <div class="col-xs-12">
+        <br/><h4>List</h4>
+        <ul>
+            <li ng-repeat="todo in data"><strong>{{ todo.title }}</strong> - {{ todo.description }} - {{ todo.created|date }} by <strong>{{todo.user}}</strong></li>
+        </ul>
+    </div>
+
 </div>

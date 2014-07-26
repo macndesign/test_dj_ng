@@ -1,8 +1,8 @@
 from __future__ import unicode_literals, absolute_import
 from django.contrib.auth.models import User
-from core.serializers import TodoSerializer, UserSerializer
-from core.models import Todo
-from core.permissions import IsOwnerOrReadOnly
+from .serializers import TodoSerializer, UserSerializer
+from .models import Todo
+from .permissions import IsOwnerOrReadOnly
 from rest_framework import viewsets, permissions
 
 

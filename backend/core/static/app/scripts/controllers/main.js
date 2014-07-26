@@ -40,10 +40,10 @@ app.controller('MainCtrl', ['$scope', '$http', '$window', '$cookies', function (
         $scope.curr = curr;
     };
     
-    $scope.pass_button = function(url){
+    $scope.passButton = function(url){
         var query = url.split('/').slice(-1).pop();
-        var page = query.split('=').slice(-1).pop();
-        $scope.curr = page || 1;
+        var curr_page = query.split('=').slice(-1).pop();
+        $scope.curr = curr_page || 1;
         get_url(url);
     };
 
